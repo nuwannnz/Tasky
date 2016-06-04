@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Tasky.exe" version="1.0.0.9" publicKeyToken="2ad1eef993193377" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="1465053237_icon-40-clipboard-list.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Tasky" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Tasky.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="522752">
+      <assemblyIdentity name="Newtonsoft.Json" version="8.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>347C4CRYKd3sW3nxkYw646P6VApaDjxBDitu8L68eSc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Tasky.exe" size="7903176">
+      <assemblyIdentity name="Tasky" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Do1BoMPVFt1MOmm73Vb2Eyf2NdPaQT5i3L2pJ2eWO5Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="1465053237_icon-40-clipboard-list.ico" size="101507">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lg+uwewL+G48Pw5z72EoMuor5YFyGrwYQ/MihxbUetA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Tasky.exe.config" size="918">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SGgCBfsPSJnzNC1FIb7uvjdEif/6ZF/qViPotYcz/F4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-NKT\Nuwan" issuerKeyHash="108138c3fa5c4792f88916dfd2b39d1bfa516710" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>iJ3b2YXxQ6WuTbiNljAVXoIZPTubu3L3YXWeWHGsyS4=</DigestValue></Reference></SignedInfo><SignatureValue>NowomuVEG2ZPK5DqNJ939MkyOcZVPkLqLkA9nIOoe8Pg5IZtlpAw7giLoKCO8qwHLvGA6/BvSJtxvekdr2aEX+bhk5d5KpgzENLuy2/1UvO0wxOaaanw9vW7ASdA6l3rswehl2Gat1Tth/URKAF0U65zSOia8GVilJ4QdjgnfrA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>4lZDgo5zS+uUzgdVax/JnHHFya0WaFqVNx4N28pLUVJhKj1WSj5Nk9JWXhRMyBoLfp8pa9BmHlip+e3sQ6Ymg9IIYNLe0iwQuX9Pu2xKYBldJU/aJKPVWFkBCZiIXnMXQlqFtthCcuW/F8g8pgNnjESXio67EgVQBphk6yTqeEk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="2ec9ac71589e7561f772bb9b3b3d19825e1530968db84daea543f185d9db9d88" Description="" Url=""><as:assemblyIdentity name="Tasky.exe" version="1.0.0.9" publicKeyToken="2ad1eef993193377" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-NKT\Nuwan</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>M5i70RnJIILnI6FlvXbOnFyPTCKiODWteaI1FS32eGA=</DigestValue></Reference></SignedInfo><SignatureValue>1QpKsC7pM2weQvTwFMxrW+zo690s13aLk3xyS2XZylzUgVlHrO8HI/iohAReBAoCH589yXtAmJpMc2ln2YQOZS5kBwrTOYiSMmQb26bs2VxWuedHr7DyNF69VcZiITgOA1aazmvPGFQoBHtW+c3X0s2reyPUe7WGSDKgNalFLQ4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>4lZDgo5zS+uUzgdVax/JnHHFya0WaFqVNx4N28pLUVJhKj1WSj5Nk9JWXhRMyBoLfp8pa9BmHlip+e3sQ6Ymg9IIYNLe0iwQuX9Pu2xKYBldJU/aJKPVWFkBCZiIXnMXQlqFtthCcuW/F8g8pgNnjESXio67EgVQBphk6yTqeEk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB3TCCAUagAwIBAgIQdyned+qYP7tDsKM/6K2aRjANBgkqhkiG9w0BAQsFADAtMSswKQYDVQQDHiIARABFAFMASwBUAE8AUAAtAE4ASwBUAFwATgB1AHcAYQBuMB4XDTE2MDYwNDE1NDAzNVoXDTE3MDYwNDIxNDAzNVowLTErMCkGA1UEAx4iAEQARQBTAEsAVABPAFAALQBOAEsAVABcAE4AdQB3AGEAbjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA4lZDgo5zS+uUzgdVax/JnHHFya0WaFqVNx4N28pLUVJhKj1WSj5Nk9JWXhRMyBoLfp8pa9BmHlip+e3sQ6Ymg9IIYNLe0iwQuX9Pu2xKYBldJU/aJKPVWFkBCZiIXnMXQlqFtthCcuW/F8g8pgNnjESXio67EgVQBphk6yTqeEkCAwEAATANBgkqhkiG9w0BAQsFAAOBgQBviFO+CxTCvU8wokn4qtpgOuCJhWbrk3Bj77iZC5/eh6kmJYaO7bKc+Z1KaMGMi/TUPIp7lKS6D5dtAwT0OOxCZlHKc584kxqRyuTJ/i2yIV919F85WgsJDppma/qMMR2ir7l2OO5J1zw4sd5wt8X+/JIRuxTC14a2L8dk2PTrDw==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

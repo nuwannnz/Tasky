@@ -1,0 +1,181 @@
+﻿<Window x:Class="Tasky.Views.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tasky.Views"
+        xmlns:vm="clr-namespace:Tasky.ViewModels"
+        xmlns:cn="clr-namespace:Tasky.Controls"
+        mc:Ignorable="d" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"
+        Title="Tasky" Height="440" Width="300"  WindowStyle="None" ResizeMode="NoResize" Icon="/Tasky;component/Assets/list.png" >
+    <Window.Resources>
+        <Style x:Key="MyListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Padding" Value="0" />
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <vm:MainPageViewModel x:Name="ViewModel" />
+    </Window.DataContext>
+
+    <Grid x:Name="RootGrid" Background="#FF007ACC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TopShellButtons" 
+                    Grid.Row="0"
+                    Orientation="Horizontal" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button x:Name="ShellMinimizeButton"
+                    Content="" 
+                    Click="ShellMinimizeButton_Click"
+                    Background="Transparent"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Padding="7"
+                    FontFamily="{StaticResource TaskyFontSymbol}"
+                    Style="{StaticResource MyShellButtonStyle}"/>
+            <Button x:Name="ShellCloseButton" 
+                    Content="" 
+                    Click="ShellCloseButton_Click"
+                    Background="Transparent"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Padding="7"                    
+                    FontFamily="{StaticResource TaskyFontSymbol}" 
+                    Style="{StaticResource MyShellButtonStyle}"/>
+        </StackPanel>
+        <TextBlock 
+            Grid.Row="0"
+            Text="Tasky"
+            Foreground="#55ffffff"
+            Margin="5,0,0,0"
+            FontSize="16" FontWeight="Thin"  
+            VerticalAlignment="Top" HorizontalAlignment="Left"
+            />
+        <StackPanel x:Name="DayInfoStackPanel"
+                    Grid.Row="0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Margin="5,20,0,0">
+            <TextBlock  x:Name="DayInt"
+                        Text="{Binding DayInt,Mode=OneWay}"
+                        Foreground="White" 
+                        FontSize="60" FontWeight="Light"
+                        />
+            <TextBlock  x:Name="DayString"
+                        Foreground="White"
+                        VerticalAlignment="Bottom"
+                        Padding="5,0,0,10"
+                        >                
+                <Run Text="{Binding DayNameString,Mode=OneWay}" FontSize="19" FontWeight="Light"   />
+                <LineBreak />
+                <Run Text="{Binding MonthAndYearString,Mode=OneWay}" FontSize="18" FontWeight="Light" />
+            </TextBlock>
+        </StackPanel>
+        <Button x:Name="SettingsButton"
+                VerticalAlignment="Center" HorizontalAlignment="Right"
+                Style="{StaticResource MyShellButtonStyle}"
+                Content="" 
+                FontFamily="{StaticResource TaskyFontSymbol}" FontSize="18"
+                Padding="3"
+                Background="Transparent" Foreground="White"
+                BorderThickness="0" Margin="0,-19,2,0"
+                Click="SettingsButton_Click"
+                />
+
+        <Border x:Name="StatusBlock"
+        	Grid.Row="1"             
+        	HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            Background="{Binding StatusColorBrush}"  
+            Visibility="{Binding ControlList.Count,Converter={StaticResource CountToVisibilityConverter}}">
+
+            <TextBlock x:Name="RemainingTaskTextBlock"        		     
+        		    FontWeight="thin" 
+                    Padding="5,5,5,8"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"    >
+                <Run  Text="{Binding RemainingTasks,Mode=OneWay}" FontSize="30" Foreground="White"/>                
+                <Run  Text="{Binding StatusString,Mode=OneWay}" FontSize="19" Foreground="White"/>
+            </TextBlock>
+        </Border>
+
+        <Grid x:Name="ControlList"
+              Grid.Row="2">
+            <ListView x:Name="ControlListListView"
+                      Height="250" 
+                      VerticalAlignment="Top"
+                      Background="#44ffffff" BorderBrush="{x:Null}" 
+                      ItemsSource="{Binding ControlList}"
+                      Visibility="{Binding ControlList.Count,Converter={StaticResource CountToVisibilityConverter}}" 
+                      BorderThickness="0"
+                      Margin="0" HorizontalContentAlignment="Stretch" ItemContainerStyle="{DynamicResource MyListViewItemStyle}"/>
+            <Border x:Name="NoTaskImage"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                    Height="250" 
+                    Visibility="{Binding ControlList.Count,Converter={StaticResource CountToVisibilityInverseConverter}}" >
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="1464950774_office-26.png"  Height="230" Margin="0,0,0,-27"/>
+                    <TextBlock Text="No Tasks"
+                               HorizontalAlignment="Center"
+                               FontSize="20"
+                               Foreground="White" 
+                               FontWeight="Thin"/>
+                </StackPanel>
+
+            </Border>
+        </Grid>
+
+        <Grid x:Name="BottomBar"
+            Grid.Row="3">
+
+            <Button x:Name="AddNewButton" 
+                    Content="Add new task"
+                    Style="{StaticResource MyShellButtonStyle}"
+                    Background="#FF0073C1" BorderBrush="{x:Null}" Foreground="White"                    
+                    FontSize="20" FontWeight="Thin" BorderThickness="0" 
+                    Visibility="{Binding IsInAddMode,Mode=OneWay,Converter={StaticResource BoolToVisibilityInverseConverter}}"
+                    Command="{Binding ToggleAddModeCommand,Mode=OneWay}"
+                    />
+            <Grid x:Name="AddModeGrid"
+                  Visibility="{Binding IsInAddMode,Mode=OneWay,Converter={StaticResource BoolToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.75*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="TaskContentTextBox"
+                         BorderThickness="0.5" 
+                         BorderBrush="Transparent" 
+                         Background="#DAFFFFFF" 
+                         Text="Hello"
+                         FontSize="19" 
+                         VerticalContentAlignment="Center"/>
+
+                <StackPanel Grid.Column="1"
+                            Margin="1,0,0,0"
+                    Orientation="Horizontal">
+                    <Button x:Name="AddButton" 
+                            Content="" 
+                            FontFamily="{StaticResource TaskyFontSymbol}"
+                            Style="{StaticResource MyShellButtonStyle}"
+                            BorderThickness="0"
+                            Padding="10,8"
+                            Command="{Binding AddNewCommand}" CommandParameter="{Binding ElementName=TaskContentTextBox}"
+                            Foreground="White" Background="Transparent"/>
+                    <Button x:Name="CancelButton"
+                            Content="" 
+                            FontFamily="{StaticResource TaskyFontSymbol}"
+                            Style="{StaticResource MyShellButtonStyle}"
+                            BorderThickness="0"
+                            Command="{Binding ToggleAddModeCommand}" CommandParameter="{Binding ElementName=TaskContentTextBox}"
+                            Padding="10,8"
+                            Foreground="White" Background="Transparent"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

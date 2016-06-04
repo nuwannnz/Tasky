@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Tasky.Controls.TaskModelControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tasky.Controls"
+             mc:Ignorable="d" Background="#FF449DDA" Height="45" 
+             d:DesignHeight="35" d:DesignWidth="300" BorderBrush="#FF2B2B2B" BorderThickness="0,0,0,0.5">
+
+
+    <Grid Height="Auto" x:Name="RootGrid" Background="#FF449DDA" >
+        <Grid.ContextMenu>
+            <ContextMenu BorderThickness="0" Style="{DynamicResource MyContextMenuStyle}">
+                <MenuItem Header="Edit" Click="MyEditButton_Click" Style="{DynamicResource MyMenuItemStyle}" />
+                <MenuItem Header="Delete" Click="MyDeleteButton_Click" Style="{DynamicResource MyMenuItemStyle}" />
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <CheckBox x:Name="MyCheckBox" 
+                  Checked="MyCheckBox_Checked" Unchecked="MyCheckBox_Unchecked"
+                  VerticalAlignment="Center" Style="{DynamicResource MyCheckBoxStyle}" Background="#44FFFFFF" BorderBrush="#FF323232"
+                  />
+        <TextBlock x:Name="MyTextBlock" Grid.Column="1" Text="{Binding Content}"
+            VerticalAlignment="Center" HorizontalAlignment="Left"
+             FontSize="16" Margin="5,0,0,0"
+            />
+        <Grid x:Name="MyEditModeGrid" Grid.ColumnSpan="2" VerticalAlignment="Center"
+              Background="White" Visibility="Hidden"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+                <TextBox x:Name="MyEditTextBox" 
+        			HorizontalAlignment="Stretch" 
+        			Margin="3"  />
+            <StackPanel  Grid.Column="1" 
+        		VerticalAlignment="Center" 
+        		Orientation="Horizontal"
+                    >
+                <Button x:Name="MySaveButton" 
+                        Click="MySaveButton_Click"
+        			Content="&#xE001;" FontFamily="Segoe MDL2 Assets" 
+        			VerticalAlignment="Center"  HorizontalAlignment="Right" 
+                        Margin="2" Padding="5" />
+                <Button x:Name="MyCancelButton" 
+                        Click="MyCancelButton_Click"
+        			Content="" FontFamily="Segoe MDL2 Assets" 
+        			VerticalAlignment="Center"  HorizontalAlignment="Right" 
+                        Margin="2" Padding="5"
+                        />
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
